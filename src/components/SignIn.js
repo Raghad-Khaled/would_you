@@ -56,13 +56,13 @@ class SignIn extends Component {
         value={this.state.selectValue} 
         onChange={this.handleChange} 
          >
-         {usersId.map((id)=>( <option value={users[id].id}  >  {users[id].name}</option> ))}
+         {usersId.map((id)=>( <option key={users[id].id} value={users[id].id}  >  {users[id].name}</option> ))}
          </select>
 
          <Button
          className='btn'
          type='submit'
-         basic color='blue' className="btn">
+         basic color='blue' >
          Sign In
          </Button> 
          </form>

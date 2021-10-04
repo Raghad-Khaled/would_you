@@ -25,8 +25,8 @@ import QuestionList from './questionList'
           onClick={this.handleItemClick}
         />
       </Menu>
-       {activeItem=="Answered Questions" &&<QuestionList type="A"/>}
-       {activeItem=="UnAnswared Questions" &&<QuestionList type="U"/>}
+       {activeItem==="Answered Questions" &&<QuestionList type="A"/>}
+       {activeItem==="UnAnswared Questions" &&<QuestionList type="U"/>}
       </div>
     )
   }

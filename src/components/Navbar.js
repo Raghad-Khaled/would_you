@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Menu, Segment } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
 import { handelAuther } from '../actions/autherUser'
 
@@ -10,7 +10,7 @@ class Navbar extends Component {
   
 
     handleItemClick = (e,{name}) => {
-      if(name!='logout'){
+      if(name!=='logout'){
       this.setState(() => ({
         activeItem:name
       }))
@@ -26,32 +26,36 @@ class Navbar extends Component {
     return (
       <div>
         <Menu pointing secondary>
-        <NavLink to="/" exact>
-          <Menu.Item
+      
+          <Menu.Item as={NavLink} to="/"  exact
             name='home'
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
           />
-        </NavLink>
+      
 
-        <NavLink to="/add">
+  
           <Menu.Item
+          as={NavLink}
+           to="/add"
             name='New Question'
             active={activeItem === 'New Question'}
             onClick={this.handleItemClick}
           />
-        </NavLink>
-        <NavLink to="/leaderboard" >
+   
+    
           <Menu.Item
+          as={NavLink}
+          to="/leaderboard"
             name='Score Board'
             active={activeItem === 'Score Board'}
             onClick={this.handleItemClick}
           />
-          </NavLink>
+       
 
           <Menu.Menu position='right'>    
           <Menu.Item>
-          <img src={img} />
+          {img && <img src={img} alt="vector"/>}
           </Menu.Item>
           <div  className="user">
           <Menu.Item
@@ -62,13 +66,15 @@ class Navbar extends Component {
          
 
           <Menu.Menu position='right'>    
-          <NavLink to="/signin" >
+          
           <Menu.Item
+          as={NavLink}
+          to="/signin"
             name='logout'
             active={activeItem === 'logout'}
             onClick={this.handleItemClick}
           />
-          </NavLink>
+         
         </Menu.Menu>
         </Menu>
 

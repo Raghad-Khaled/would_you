@@ -60,7 +60,7 @@ class AddQuestion extends Component {
             onChange={this.handleChange1}
             type="text"
           />
-           <br/> <strong><img src="https://img.icons8.com/emoji/50/000000/vs-button-emoji.png"/></strong> <br/> 
+           <br/> <strong><img alt="VS" src="https://img.icons8.com/emoji/50/000000/vs-button-emoji.png"/></strong> <br/> 
           <Input
           placeholder="Option Two"
           value={text2}
@@ -75,7 +75,7 @@ class AddQuestion extends Component {
               className='btn'
               type='submit'
               disabled={text1 === '' ||text2===''}
-              basic color='green' className="btn">
+              basic color='green'>
               Add Question
               </Button> 
   

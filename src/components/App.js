@@ -1,17 +1,15 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import {  Route,Switch } from 'react-router-dom'
-import { useLocation } from 'react-router-dom';
 import {handelInitailData} from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
-import { createBrowserHistory } from "history";
 import AddQuestion from './addquestion'
 import Dashboard from './board'
 import ShowQuestion from './ShowQuestion'
 import Navbar from './Navbar'
 import Home from './Home'
 import SignIn from './SignIn'
-import Pages from './Pages'
+import { withRouter } from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute';
 
 class App extends Component {
@@ -19,6 +17,7 @@ class App extends Component {
     const { dispatch } = this.props
 
     dispatch(handelInitailData())
+    //this.props.history.push('/signin')
   }
  // {createBrowserHistory().location.pathname !== '/signin' &&  <Navbar/>}
 /*  state = {
@@ -33,12 +32,12 @@ class App extends Component {
         :<div>
         <Route path='/' exact  render={() => (<Navbar type='home' />)} />
         <Route path='/add'  exact render={() => (<Navbar type='New Question' />)} />
-        <ProtectedRoute path='/leaderboard'  exact  exact render={() => (<Navbar type='Score Board' />)} />
+        <Route path='/leaderboard' exact render={() => (<Navbar type='Score Board'/>)} />
         <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/question/:id'  exact component={ShowQuestion} />
-        <Route path='/add'  exact component={AddQuestion} />
-        <Route path='/leaderboard'  exact component={Dashboard} />
+        <ProtectedRoute path='/' exact component={Home} />
+        <ProtectedRoute path='/question/:id'  exact component={ShowQuestion} />
+        <ProtectedRoute path='/add'  exact component={AddQuestion} />
+        <ProtectedRoute path='/leaderboard'  exact component={Dashboard} />
         <Route path='/signin'  exact component={SignIn} />
         <Route component={NoMatchPage} />
         </Switch>
@@ -63,4 +62,4 @@ function mapStateToProps ({ authedUser }) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default withRouter(connect(mapStateToProps)(App))

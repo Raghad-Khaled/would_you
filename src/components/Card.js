@@ -1,4 +1,4 @@
-import { Button, Card, Image } from 'semantic-ui-react'
+import {  Card, Image } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 

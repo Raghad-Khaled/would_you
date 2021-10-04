@@ -19,7 +19,7 @@ class QuestionList extends Component {
 }
 
 function mapStateToProps ({ questions,users ,autherdUser },{type}) {
-  if(type=='A'){
+  if(type==='A'){
   return { 
     questionIds: autherdUser&&users[autherdUser] ? Object.keys(users[autherdUser].answers).sort((a,b,) => questions[b].timestamp - questions[a].timestamp):null
     //questionIds:Object.keys(questions)

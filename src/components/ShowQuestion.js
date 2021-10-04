@@ -46,10 +46,10 @@ handleSubmit = (e) => {
           <Card.Header>{name} asked would you rather</Card.Header>
           <Card.Description>
             {A} 
-            {choseA && <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/35/000000/external-check-banking-and-finance-kiranshastry-lineal-color-kiranshastry.png"/>}
+            {choseA && <img alt="A" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/35/000000/external-check-banking-and-finance-kiranshastry-lineal-color-kiranshastry.png"/>}
             <Progress color='green' value={voteA} total={voteA+voteB} progress='ratio' />
             <br/> <strong>OR</strong> <br/> {B}
-            {!choseA && <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/35/000000/external-check-banking-and-finance-kiranshastry-lineal-color-kiranshastry.png"/>}
+            {!choseA &&  <img  alt="B" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/35/000000/external-check-banking-and-finance-kiranshastry-lineal-color-kiranshastry.png"/>}
             <Progress color='green' value={voteB} total={voteA+voteB} progress='ratio' />
           </Card.Description>
         </Card.Content>
