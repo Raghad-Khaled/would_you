@@ -31,6 +31,7 @@ handleSubmit = (e) => {
         voteA,
         voteB,
        ans }=this.props
+       const sum=voteA+voteB
     if(ans){  
       console.log(ans) 
     return (
@@ -47,10 +48,10 @@ handleSubmit = (e) => {
           <Card.Description>
             {A} 
             {choseA && <img alt="A" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/35/000000/external-check-banking-and-finance-kiranshastry-lineal-color-kiranshastry.png"/>}
-            <Progress color='green' value={voteA} total={voteA+voteB} progress='ratio' />
+            <Progress color='green' value={voteA} total={sum} progress='percent' label={voteA +' / '+ sum} />
             <br/> <strong>OR</strong> <br/> {B}
             {!choseA &&  <img  alt="B" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/35/000000/external-check-banking-and-finance-kiranshastry-lineal-color-kiranshastry.png"/>}
-            <Progress color='green' value={voteB} total={voteA+voteB} progress='ratio' />
+            <Progress color='green' value={voteB} total={sum} progress='percent' label={voteB +' / '+ sum}  />
           </Card.Description>
         </Card.Content>
         <Card.Content >
@@ -102,7 +103,10 @@ handleSubmit = (e) => {
       </React.Fragment>
       )
     }else{
-      return(<h1>404 - Not found</h1>)
+      return(<React.Fragment>
+        <Navbar/>
+        <h1>404 - Not found</h1>
+        </React.Fragment>)
     }
   }
 }

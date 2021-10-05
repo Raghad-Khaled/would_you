@@ -35,10 +35,10 @@ class App extends Component {
         <Route path='/leaderboard' exact render={() => (<Navbar type='Score Board'/>)} />
         <Switch>
         <ProtectedRoute path='/' exact component={Home} />
-        <ProtectedRoute path='/question/:id'  exact component={ShowQuestion} />
+        <ProtectedRoute path='/questions/:id'  exact component={ShowQuestion} />
         <ProtectedRoute path='/add'  exact component={AddQuestion} />
         <ProtectedRoute path='/leaderboard'  exact component={Dashboard} />
-        <Route path='/signin'  exact component={SignIn} />
+        <Route path='/signin' exact component={SignIn} />
         <Route component={NoMatchPage} />
         </Switch>
         </div> }
@@ -51,6 +51,7 @@ class App extends Component {
 const NoMatchPage = () => {
   return (
     <React.Fragment>
+    <Navbar/>
     <h1>404 - Not found</h1>
     </React.Fragment>
   );

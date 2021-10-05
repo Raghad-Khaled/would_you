@@ -8,7 +8,7 @@ class Question extends Component {
       const {name,   
         img,
         A,
-        B, id}=this.props
+        B, question_id}=this.props
     return (
         <Card className="centered">
         <Card.Content>
@@ -24,7 +24,7 @@ class Question extends Component {
         </Card.Content>
         <Card.Content >
           
-         <Link to={`/question/${id}`}>
+         <Link to={`/questions/${question_id}`}>
             <Button basic color='green' className="btn">
               View Question
             </Button>
@@ -47,7 +47,7 @@ function mapStateToProps ({questions,users}, { id }) {
      img,
      A,
      B,
-     id
+     question_id:id
     };
 }
 

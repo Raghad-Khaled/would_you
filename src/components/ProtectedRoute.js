@@ -14,8 +14,9 @@ const ProtectedRoute = ({ component: Component,autherdUser,exact, path}) => (
        {   //console.log(autherdUser)
            return <Component {...props} />}
         else{
-        //console.log(props)    
-        return <Redirect to="/signin" /> 
+        //console.log(props.history.location.pathname)    
+        const path=props.history.location.pathname
+        return <Redirect to={{pathname: '/signin',state: { prv: path }}}/>
         }    }}   />              
 )
 

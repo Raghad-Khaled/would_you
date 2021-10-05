@@ -5,6 +5,8 @@ import { handelAuther } from '../actions/autherUser'
 import { Redirect } from 'react-router-dom'
 
 
+
+
 class SignIn extends Component {
     state={
         selectValue:'sarahedo',
@@ -19,20 +21,27 @@ class SignIn extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const { selectValue } = this.state
-        const { dispatch} = this.props
+        const { dispatch } = this.props
         dispatch( handelAuther(selectValue))
 
-        this.setState(() => ({
-            toHome:true
-          }))
         
+         // console.log(this.props.history)    
+        //return  this.props.history.goBack()
+        //this.props.history.goBack()
+        //const BrowserHistory = createBrowserHistory();
+        //BrowserHistory.back()
+        // console.log("hii",this.props.location.state)
+         this.setState(() => ({
+          toHome: this.props.location.state!==null ? this.props.location.state.prv : '/'
+        }))
     }    
 
   render() {
     const { usersId,users} =this.props
     const {toHome}=this.state
-    if(toHome){
-        return <Redirect to='/' />
+    if(toHome!==false){
+        //console.log(toHome)
+        return <Redirect to={toHome} />
     }
     return (
         <Card className="centered center"  style={{width:'400px', marginTop:'40px' }}>
@@ -80,7 +89,7 @@ function mapStateToProps ({users}) {
   
     return {
      usersId:Object.keys(users),   
-     users
+     users,
     };
 }
 
